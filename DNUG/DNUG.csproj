@@ -105,6 +105,11 @@
     <Compile Include="Navigation\NavigatorRoot.cs" />
     <Compile Include="Navigation\Navigator.cs" />
     <Compile Include="Orientation.cs" />
+    <Compile Include="Search.cs" />
+    <Compile Include="ViewControllers\SearchSomethingViewController.cs" />
+    <Compile Include="ViewControllers\SearchSomethingViewController.designer.cs">
+      <DependentUpon>SearchSomethingViewController.cs</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

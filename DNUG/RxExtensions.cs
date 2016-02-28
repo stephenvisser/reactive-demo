@@ -2,6 +2,7 @@
 using Foundation;
 using UIKit;
 using System.Reactive.Linq;
+using System.Reactive.Disposables;
 
 namespace DNUG
 {
@@ -17,5 +18,30 @@ namespace DNUG
 		}
 	}
 
+	class TFDelegate: UITextFieldDelegate {
+
+		private Action<string> callback;
+		public TFDelegate(Action<string> callback) {
+			this.callback = callback;
+		}
+
+		public override bool ShouldChangeCharacters (UITextField textField, NSRange range, string replacementString)
+		{
+			callback (textField.Text.Substring (0, (int) range.Location) + replacementString + textField.Text.Substring ((int) range.Location + (int) range.Length));
+			return true;
+		}
+	}
+
+	static class UITextFieldExtension {
+
+		public static IObservable<string> Text(this UITextField field) {
+			
+			return Observable.Create<string>(observer => {
+				field.Delegate = new TFDelegate(observer.OnNext);
+
+				return Disposable.Empty;
+			}).StartWith(field.Text);
+		}
+	}
 }
 

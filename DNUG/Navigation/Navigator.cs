@@ -13,7 +13,8 @@ namespace DNUG
 			Observable.Defer(() => { return Show<AreYouReadyViewController, bool>(vc => vc.UserResponse, false)(); })
 				.SelectMany(result => {
 					if (result) {
-						return Show<TurnPhoneUpsideDownViewController, Unit>(vc => Observable.Empty<Unit>())();
+						return Show<TurnPhoneUpsideDownViewController, Unit>(vc => vc.UpsideDown)()
+							.SelectMany(Show<SearchSomethingViewController, Unit, Unit>((vc, _) => Observable.Empty<Unit>()));
 					} else {
 						return Show<GoHomeViewController, Unit>(vc => vc.AcceptFate)();
 					}
