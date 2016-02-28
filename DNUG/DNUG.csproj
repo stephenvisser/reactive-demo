@@ -104,6 +104,7 @@
     <None Include="packages.config" />
     <Compile Include="Navigation\NavigatorRoot.cs" />
     <Compile Include="Navigation\Navigator.cs" />
+    <Compile Include="Orientation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
