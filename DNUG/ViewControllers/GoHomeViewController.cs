@@ -20,10 +20,7 @@ namespace DNUG
 
 			accept
 				.Tap ()
-				.Select ((val) => {
-					throw new ArgumentException ();
-					return Unit.Default;
-				})
+				.Select<object, Unit> (val => { throw new ArgumentException (); })
 				.Subscribe(AcceptFate);
 		}
 	}
