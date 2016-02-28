@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DNUG", "DNUG\DNUG.csproj", "{91CB7FB6-7758-4241-B905-A8A964384ED7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Debug|iPhone.Build.0 = Debug|iPhone
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Release|iPhone.ActiveCfg = Release|iPhone
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Release|iPhone.Build.0 = Release|iPhone
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{91CB7FB6-7758-4241-B905-A8A964384ED7}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+EndGlobal
