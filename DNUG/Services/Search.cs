@@ -12,7 +12,10 @@ namespace DNUG
 
 		public IObservable<string> Perform(String term) {
 
-			var request = new NSUrlRequest (new NSUrl (String.Format("https://api.duckduckgo.com/?q={0}&format=json&pretty=1", term.Replace(' ', '+'))));
+			try {
+			var url = new NSUrl (String.Format ("https://api.duckduckgo.com/?q={0}&format=json&pretty=1", term.Replace (' ', '+')));
+
+			var request = new NSUrlRequest (url);
 
 			return Observable.Create<string> (observable => {
 				var network = session.CreateDataTask (request, (data, response, error) => {
@@ -34,6 +37,11 @@ namespace DNUG
 
 				return Disposable.Create(network.Cancel);
 			});
+
+			}
+			catch(Exception e) {
+				return Observable.Throw<string>(e);
+			}
 		}
 	}
 }

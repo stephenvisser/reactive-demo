@@ -18,7 +18,7 @@ namespace DNUG
 
 			searchField.Text ()
 				.Throttle(TimeSpan.FromSeconds(1))
-				.Select (searcher.Perform)
+				.Select (t => { return searcher.Perform(t).Catch(Observable.Empty<string>()); })
 				.Switch()
 				.Debug("Searching!")
 				.Where(result => { return !string.IsNullOrEmpty(result); })
