@@ -14,7 +14,7 @@ namespace DNUG
 				.SelectMany(result => {
 					if (result) {
 						return Show<TurnPhoneUpsideDownViewController, Unit>(vc => vc.UpsideDown)()
-							.SelectMany(Show<SearchSomethingViewController, Unit, Unit>((vc, _) => Observable.Empty<Unit>()));
+							.SelectMany(Show<SearchSomethingViewController, Unit, Unit>((vc, _) => vc.Back.Select<Unit, Unit>( s => { throw new Exception(); })));
 					} else {
 						return Show<GoHomeViewController, Unit>(vc => vc.AcceptFate)();
 					}
