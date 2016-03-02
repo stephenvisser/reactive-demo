@@ -17,7 +17,10 @@ namespace DNUG
 			base.ViewDidLoad ();
 
 			searchField.Text ()
-				.SelectMany (searcher.Perform)
+				.Throttle(TimeSpan.FromSeconds(1))
+				.Select (searcher.Perform)
+				.Switch()
+				.Debug("Searching!")
 				.Where(result => { return !string.IsNullOrEmpty(result); })
 				.Subscribe (imageURL => {
 					InvokeOnMainThread(() => {
