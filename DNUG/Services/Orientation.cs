@@ -40,7 +40,6 @@ namespace DNUG
 					manager.StopAccelerometerUpdates();
 				});
 			});
-
 		}
 	}
 }

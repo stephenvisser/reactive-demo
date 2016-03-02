@@ -1,8 +1,7 @@
-﻿using Foundation;
-using System;
-using System.Reactive.Linq;
+﻿using System;
 using System.Reactive.Concurrency;
-
+using System.Reactive.Linq;
+using Foundation;
 using UIKit;
 
 namespace DNUG
@@ -11,9 +10,7 @@ namespace DNUG
 	{
 		private Search searcher = new Search();
 
-		public SearchSomethingViewController (IntPtr handle) : base (handle)
-		{
-		}
+		public SearchSomethingViewController (IntPtr handle) : base (handle) { }
 
 		public override void ViewDidLoad ()
 		{
@@ -27,14 +24,6 @@ namespace DNUG
 						resultImageView.Image = new UIImage(NSData.FromUrl(new NSUrl(imageURL)));
 					});
 				});
-
-			// Perform any additional setup after loading the view, typically from a nib.
-		}
-
-		public override void DidReceiveMemoryWarning ()
-		{
-			base.DidReceiveMemoryWarning ();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

@@ -1,10 +1,10 @@
 ﻿using System;
-using Foundation;
-using System.Reactive.Linq;
-using System.Reactive.Concurrency;
-using System.Reactive.Subjects;
 using System.Reactive;
+using System.Reactive.Concurrency;
 using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+using Foundation;
 using UIKit;
 
 namespace DNUG
@@ -13,12 +13,9 @@ namespace DNUG
 	{
 		private Orientation orientation = new Orientation();
 		private CompositeDisposable disp = new CompositeDisposable();
-
 		public Subject<Unit> UpsideDown = new Subject<Unit>();
 
-		public TurnPhoneUpsideDownViewController (IntPtr handle) : base (handle)
-		{
-		}
+		public TurnPhoneUpsideDownViewController (IntPtr handle) : base (handle) { }
 
 		public override void ViewDidLoad ()
 		{
@@ -44,20 +41,12 @@ namespace DNUG
 				.Subscribe(UpsideDown);
 
 			disp.Add (publishEventsDisp);
-			// Perform any additional setup after loading the view, typically from a nib.
 		}
 
 		public override void ViewWillDisappear (bool animated)
 		{
 			base.ViewWillDisappear (animated);
-
 			disp.Dispose ();
-		}
-
-		public override void DidReceiveMemoryWarning ()
-		{
-			base.DidReceiveMemoryWarning ();
-			// Release any cached data, images, etc that aren't in use.
 		}
 	}
 }

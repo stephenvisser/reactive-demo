@@ -9,9 +9,6 @@ namespace DNUG
 	public class Search
 	{
 		private NSUrlSession session = NSUrlSession.SharedSession;
-		public Search ()
-		{
-		}
 
 		public IObservable<string> Perform(String term) {
 
@@ -37,8 +34,6 @@ namespace DNUG
 
 				return Disposable.Create(network.Cancel);
 			});
-
-			
 		}
 	}
 }
