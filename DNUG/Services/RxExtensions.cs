@@ -43,5 +43,22 @@ namespace DNUG
 			}).StartWith(field.Text);
 		}
 	}
+
+	static class ObservableExtension {
+
+		public static IObservable<T> Debug<T>(this IObservable<T> obs, string label) {
+			return obs.Do (
+				o => { 
+					Console.WriteLine ("{0} Next: {1}", label, o);
+				}, 
+				e => {
+					Console.WriteLine ("{0} Error: {1}", label, e);
+				},
+				() => {
+					Console.WriteLine ("{0} Completed", label);
+				}
+			);	
+		}
+	}
 }
 
